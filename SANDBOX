@@ -1,1 +1,14 @@
-SANDBOX
+
+job('simpleJobwithParameters'){
+parameters {
+  stringParam ('Object','Unsubscribed','Description')
+}
+steps {
+  shell('echo $JOB_NAME $BUILD_NUMBER')
+  shell ('echo $Object')
+}
+  publishers {
+    downstream ('simpleJobwithParameters','SUCCESS')
+  }
+  
+}
