@@ -1,0 +1,15 @@
+stage('Create file'){
+    node('master'){
+        sh label: '', script: 'touch NewFile'
+    }
+}
+stage('Write'){
+    node('master'){
+        sh label: '', script: 'echo \'this is a message\' > NewFile'
+    }
+}
+stage('Print'){
+    node('master'){
+        sh label: '', script: 'cat NewFile'
+    }
+}
